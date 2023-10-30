@@ -1,10 +1,10 @@
 #include "lists.h"
 
 int check_cycle(listint_t *head) {
-		listint_t* tortoise;
-		listint_t* hare;
-		hare = head;
-		tortoise = head;
+
+	listint_t* tortoise = head;
+	listint_t* hare = head;
+
     if (head == NULL || head->next == NULL) {
         return (0);
     }
