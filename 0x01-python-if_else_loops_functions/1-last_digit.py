@@ -3,8 +3,8 @@ import random
 number = random.randint(-10000, 10000)
 digit = abs(number) % 10
 if digit > 5:
-    print(f"the last digit of {number} is {digit} and is greater than 5")
+    print(f"Last digit of {number} is {digit} and is greater than 5")
 elif digit != 0 & digit < 6:
-    print(f"the last digit of {number} is {digit} is less than 6 and not 0")
+    print(f"Last digit of {number} is {digit} is less than 6 and not 0")
 else:
-    print(f"the last digit of {number} is {digit} and is 6")
+    print(f"Last digit of {number} is {digit} and is 6")
