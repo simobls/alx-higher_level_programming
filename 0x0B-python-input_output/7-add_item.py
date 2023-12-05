@@ -1,18 +1,20 @@
 #!/usr/bin/python3
 """
-function that creates an Object from a “JSON file”
+Script that adds all arguments to a Python list, and then saves them to a file
 """
 
 from sys import argv
-save_to_json_file = __import__ ("5-save_to_json_file").save_to_json_file
-load_from_json_file = __import__ ("6-load_from_json_file").load_from_json_file
+save_to_json_file = __import__("5-save_to_json_file").save_to_json_file
+load_from_json_file = __import__("6-load_from_json_file").load_from_json_file
+
+filename = "add_item.json"
 
 try:
-    list_js = load_from_json_file("add_item.json")
+    json_list = load_from_json_file(filename)
 except FileNotFoundError:
-    list_js = []
+    json_list = []
 
 for arg in argv[1:]:
-    list_js.append(arg)
+    json_list.append(arg)
 
-save_to_json_file(list_js, "add_item.json")
+save_to_json_file(json_list, filename)
