@@ -82,41 +82,18 @@ class Rectangle(Base):
         """Return the area of the Rectangle."""
         return self.width * self.height
 
-    def display1(self):
-        if self.width == 0 or self.height == 0:
-            print("")
-            return
-
-        for i in range(self.__height):
-            for j in range(self.__width):
-                print("#", end="")
-            print("")
-
     def display(self):
+        """Print the Rectangle using the `#` character."""
         if self.width == 0 or self.height == 0:
             print("")
             return
-        for y in range(self.y):
+
+        [print("") for y in range(self.y)]
+        for h in range(self.height):
+            [print(" ", end="") for x in range(self.x)]
+            [print("#", end="") for w in range(self.width)]
             print("")
-        for i in range(self.__height):
-            for x in range(self.x):
-                print(" ", end="")
-            for j in range(self.__width):
-                print("#", end="")
-            print("")
-    
-    def update1(self, *args):
-        if len(args) > 0:
-            self.id = args[0]
-        if len(args) > 1:
-            self.width = args[1]
-        if len(args) > 2:
-            self.height = args[2]
-        if len(args) > 3:
-            self.x = args[3]
-        if len(args) > 4:
-            self.y = args[4]
-            
+
     def update(self, *args, **kwargs):
         """Update the Rectangle.
         Args:

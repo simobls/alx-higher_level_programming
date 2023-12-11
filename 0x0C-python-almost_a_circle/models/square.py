@@ -1,10 +1,13 @@
 #!/usr/bin/python3
-
+"""
+This module contains the "Square" class
+"""
 from models.rectangle import Rectangle
+
 
 class Square(Rectangle):
     """Represent a square."""
-    
+
     def __init__(self, size, x=0, y=0, id=None):
         """Initialize a new Square.
         Args:
@@ -14,7 +17,7 @@ class Square(Rectangle):
             id (int): The identity of the new Square.
         """
         super().__init__(size, size, x, y, id)
-    
+
     @property
     def size(self):
         """Get/set the size of the Square."""
@@ -24,7 +27,7 @@ class Square(Rectangle):
     def size(self, value):
         self.width = value
         self.height = value
-        
+
     def update(self, *args, **kwargs):
         """Update the Square.
         Args:
@@ -64,7 +67,7 @@ class Square(Rectangle):
                     self.x = v
                 elif k == "y":
                     self.y = v
-    
+
     def to_dictionary(self):
         """Return the dictionary representation of the Square."""
         return {
@@ -74,7 +77,6 @@ class Square(Rectangle):
             "y": self.y
         }
 
-    
     def __str__(self):
         """Return the print() and str() representation of a Square."""
         return "[Square] ({}) {}/{} - {}".format(self.id, self.x, self.y,
