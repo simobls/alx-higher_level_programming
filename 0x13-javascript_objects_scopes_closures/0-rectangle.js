@@ -1,5 +1,1 @@
-class Rectangle {
-    constructor (){
-
-    }
-}
+class Rectangle{}
