@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-"""List all states that contains the letter a"""
+"""List all states"""
 from sys import argv
 from model_state import Base, State
 from sqlalchemy import (create_engine)
@@ -13,9 +13,10 @@ if __name__ == "__main__":
     Base.metadata.create_all(engine)
     Session = sessionmaker(bind=engine)
     session = Session()
-    states = session.query(State).filter(State.name == argv[4]).\
-        order_by(State.id).all()
-    for state in states:
-        print("{}".format(state.id))
-    session.close()
+    states = session.query(State).\
+        filter(State.name == argv[4]).order_by(State.id).all()
+    if states:
+        print("{}".format(states[0].id))
+    else:
+        print("Not found")
     session.close()
