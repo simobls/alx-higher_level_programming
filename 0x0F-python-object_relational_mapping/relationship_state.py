@@ -4,8 +4,7 @@
 from sqlalchemy import Column, Integer, String
 from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy.orm import relationship, backref
-
-Base = declarative_base()
+from model_state import Base
 
 
 class State(Base):
@@ -17,6 +16,7 @@ class State(Base):
     name = Column(String(128), nullable=False)
 
     cities = relationship(
+
         "City",
         cascade="all, delete-orphan",
         backref=backref("state", cascade="all"),
